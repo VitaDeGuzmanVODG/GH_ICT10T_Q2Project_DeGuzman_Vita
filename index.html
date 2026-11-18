@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://pyscript.net/releases/2026.7.3/core.css">
+    <script type="module" src="https://pyscript.net/releases/2026.7.3/core.js"></script>
+    <title>Monarch Club Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>MONARCH CLUB</h1>
+        <p>My Second Quarter Project</p>
+    </header>
+
+    <nav>
+        <button onclick="showPage('home')">Home</button>
+        <button onclick="showPage('element')">Element Checker</button>
+        <button onclick="showPage('members')">School Club Members</button>
+        <button onclick="showPage('creator')">Meet the Creator</button>
+    </nav>
+
+    <section id="home" class="page active">
+
+        <h1>DANCE CLUB CHECKER</h1>
+
+        <p>Check if you are a member of the Dance Club.</p>
+
+        <input
+            type="text"
+            id="first_name"
+            placeholder="Enter first name"
+            autocomplete="given-name"
+        >
+
+        <input
+            type="text"
+            id="last_name"
+            placeholder="Enter last name"
+            autocomplete="family-name"
+        >
+
+        <button class="action" type="button" py-click="check_member">
+            ENTER
+        </button>
+
+        <div id="result" class="result" aria-live="polite">
+            Your membership result will appear here.
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 2: ELEMENT CHECKER -->
+    <section id="element" class="page">
+
+        <h1>Non-Metal Elements</h1>
+
+        <p>Explore information about chemical elements.</p>
+
+        <h2>Element Search</h2>
+
+        <p>
+            Enter the symbol of a non-metal element
+            to retrieve its information.
+        </p>
+
+        <input
+            type="text"
+            id="symbol"
+            placeholder="Enter element symbol (e.g. O)"
+            maxlength="2"
+        >
+
+        <button class="action" py-click="search_element">
+           Search Element
+        </button>
+
+        <div class="result">
+
+            <h2>Element Information</h2>
+
+            <p id="element-message">
+                Enter an element symbol to see its information.
+            </p>
+
+            <div class="information">
+
+                <div class="info-item">
+                    <span>Element Symbol</span>
+                    <h3 id="result-symbol">-</h3>
+                </div>
+
+                <div class="info-item">
+                    <span>Element Name</span>
+                    <h3 id="result-name">-</h3>
+                </div>
+
+                <div class="info-item">
+                    <span>Atomic Number</span>
+                    <h3 id="result-atomic-number">-</h3>
+                </div>
+
+                <div class="info-item">
+                    <span>Atomic Mass</span>
+                    <h3 id="result-atomic-mass">-</h3>
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 3: SCHOOL CLUB MEMBERS -->
+    <section id="members" class="page">
+
+        <h1>Monarch Club Members</h1>
+
+        <p>
+            Manage club members using Python sets
+            and set operators.
+        </p>
+
+        <div class="result">
+
+            <h2>Add New Club Member</h2>
+
+            <label for="first-name">First Name:</label>
+
+            <input
+                type="text"
+                id="first-name"
+                placeholder="Enter first name"
+            >
+
+            <label for="last-name">Last Name:</label>
+
+            <input
+                type="text"
+                id="last-name"
+                placeholder="Enter last name"
+            >
+
+            <button
+                id="add-button"
+                class="action"
+                py-click="add_member"
+            >
+                Submit
+            </button>
+
+            <p id="member-message" role="status"></p>
+
+        </div>
+
+        <div class="result">
+
+            <h2>All Members</h2>
+
+            <div id="member-list"></div>
+
+            <div id="member-total"></div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PAGE 4: MEET THE CREATOR -->
+    <section id="creator" class="page">
+
+        <h1>Meet the Creator</h1>
+
+        <h2>Hello! Welcome to My Website!</h2>
+
+        <p>
+            Hi! I am the creator of this Monarch Club website.
+            This website showcases my activities and projects
+            for the second quarter.
+        </p>
+
+        <h3>About Me</h3>
+        <p>
+            Name: Vita De Guzman
+        </p>
+
+        <h3>My Interests and Hobbies</h3>
+        <p>
+            Gaming, watching movies, hanging out with friends, and traveling.
+        </p>
+
+        <h3>My Dreams and Goals</h3>
+        <p>
+            To travel the world, to finish law school, and to not end up unemployed.
+        </p>
+
+        <h3>My Favorite Quote</h3>
+        <p>
+            "Cash Rules Everything Around Me" - Wu-Tang Clan
+        </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 MONARCH CLUB | All Rights Reserved
+    </footer>
+
+    <py-script src="./main.py"></py-script>
+
+    <script>
+    function showPage(pageId) {
+
+        const pages = document.querySelectorAll(".page");
+
+        pages.forEach(page => {
+            page.classList.remove("active");
+        });
+
+        document.getElementById(pageId).classList.add("active");
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --pink: #ff1493;
+    --hot-pink: #ff69b4;
+    --turquoise: #00e5e5;
+    --aqua: #a8ffff;
+    --dark: #101116;
+    --card: rgba(22, 27, 32, 0.94);
+    --text: #ffffff;
+}
+
+body {
+    min-height: 100vh;
+    font-family: "Segoe UI", Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(10, 12, 17, 0.77),
+            rgba(10, 12, 17, 0.88)
+        ),
+        url("https://i.pinimg.com/736x/c1/1b/dd/c11bdd64dfb00614a47a197f66b19ebc.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+    color: var(--text);
+}
+
+header {
+    text-align: center;
+    padding: 30px 20px;
+    background: rgba(12, 14, 18, 0.92);
+    border-bottom: 4px solid var(--pink);
+}
+
+header h1 {
+    font-size: clamp(27px, 5vw, 48px);
+    font-weight: 800;
+    letter-spacing: 5px;
+    color: var(--pink);
+
+    text-shadow: 0 0 8px rgba(255, 20, 147, 0.65);
+}
+
+header p {
+    margin-top: 12px;
+    color: var(--aqua);
+    font-size: 14px;
+    letter-spacing: 3px;
+    line-height: 1.8;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    padding: 18px;
+    background: rgba(12, 14, 18, 0.96);
+    border-bottom: 2px solid var(--turquoise);
+}
+
+nav button {
+    margin: 0;
+    padding: 12px 20px;
+
+    background: transparent;
+    color: var(--aqua);
+
+    border: 2px solid var(--turquoise);
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 1px;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+nav button:hover {
+    background: var(--pink);
+    color: white;
+    border-color: var(--hot-pink);
+
+    box-shadow: 0 0 15px rgba(255, 20, 147, 0.5);
+    transform: translateY(-2px);
+}
+
+.page {
+    display: none;
+
+    width: 90%;
+    max-width: 850px;
+
+    min-height: 450px;
+    margin: 40px auto;
+    padding: 40px;
+
+    background: var(--card);
+
+    border: 2px solid var(--turquoise);
+    border-top: 7px solid var(--pink);
+    border-radius: 20px;
+
+    box-shadow:
+        0 0 15px rgba(0, 218, 218, 0.16),
+        0 12px 35px rgba(0, 0, 0, 0.45);
+}
+
+.page.active {
+    display: block;
+}
+
+.page h1 {
+    margin-bottom: 20px;
+
+    color: var(--pink);
+    font-size: clamp(25px, 4vw, 36px);
+    letter-spacing: 2px;
+
+    text-shadow: 0 0 8px rgba(255, 20, 147, 0.4);
+}
+
+.page h2 {
+    margin: 20px 0 15px;
+    color: var(--aqua);
+}
+
+.page h3 {
+    margin-top: 12px;
+    color: var(--hot-pink);
+}
+
+.page p {
+    margin-bottom: 15px;
+    color: #e0e0e8;
+    line-height: 1.8;
+}
+
+input {
+    display: block;
+    width: 100%;
+
+    padding: 16px 20px;
+    margin: 15px 0;
+
+    background: var(--dark);
+
+    border: 2px solid #393d45;
+    border-radius: 10px;
+
+    color: white;
+    font-size: 16px;
+
+    outline: none;
+    transition: 0.25s;
+}
+
+input::placeholder {
+    color: #aeb7c2;
+}
+
+input:focus {
+    border-color: var(--turquoise);
+    box-shadow: 0 0 12px rgba(0, 229, 229, 0.22);
+}
+
+
+/* =====================================
+   6. BUTTONS
+===================================== */
+
+.action,
+button.action {
+    padding: 15px 25px;
+
+    border: 2px solid var(--hot-pink);
+    border-radius: 10px;
+
+    background: linear-gradient(
+        100deg,
+        #d90069,
+        var(--pink)
+    );
+
+    color: white;
+
+    font-size: 16px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.action:hover,
+button.action:hover {
+    background: var(--turquoise);
+    border-color: var(--aqua);
+    color: var(--dark);
+
+    box-shadow: 0 0 20px rgba(0, 229, 229, 0.4);
+    transform: translateY(-2px);
+}
+
+.action:active,
+button.action:active {
+    transform: scale(0.98);
+}
+
+.result,
+.result-card,
+.result-box {
+    width: 100%;
+    margin-top: 25px;
+    padding: 25px;
+
+    background: rgba(14, 29, 32, 0.94);
+
+    border-left: 6px solid var(--turquoise);
+    border-radius: 12px;
+
+    color: var(--aqua);
+    line-height: 1.8;
+
+    overflow-wrap: anywhere;
+
+    box-shadow: 0 0 18px rgba(0, 229, 229, 0.12);
+}
+
+.result-card {
+    min-height: 105px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.information {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+
+    margin-top: 20px;
+}
+
+.info-item {
+    padding: 18px;
+
+    background: rgba(22, 27, 32, 0.95);
+
+    border: 1px solid var(--turquoise);
+    border-radius: 10px;
+
+    box-shadow: 0 0 10px rgba(0, 229, 229, 0.10);
+}
+
+.info-item span {
+    color: var(--aqua);
+    font-size: 13px;
+}
+
+.info-item h3 {
+    margin-top: 8px;
+    color: var(--hot-pink);
+    font-size: 21px;
+}
+
+#member-list {
+    white-space: pre-line;
+    color: var(--aqua);
+    line-height: 2;
+    overflow-wrap: anywhere;
+}
+
+#member-total {
+    display: inline-block;
+
+    margin-top: 18px;
+    padding: 12px 18px;
+
+    background: var(--turquoise);
+    color: var(--dark);
+
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+#member-message {
+    margin-top: 15px;
+    color: var(--hot-pink);
+    font-weight: bold;
+}
+
+#creator h2 {
+    color: var(--hot-pink);
+}
+
+#creator h3 {
+    margin-top: 25px;
+    padding-bottom: 8px;
+
+    color: var(--aqua);
+
+    border-bottom: 1px solid var(--turquoise);
+}
+
+#creator p {
+    margin-top: 10px;
+}
+
+footer {
+    width: 100%;
+    margin-top: 40px;
+    padding: 25px 15px;
+
+    background: rgba(12, 14, 18, 0.96);
+    border-top: 4px solid var(--pink);
+
+    text-align: center;
+
+    color: #b6b6c0;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+footer span {
+    color: var(--hot-pink);
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+
+    header h1 {
+        letter-spacing: 2px;
+    }
+
+    header p {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    nav {
+        gap: 8px;
+        padding: 12px;
+    }
+
+    nav button {
+        padding: 10px 12px;
+        font-size: 12px;
+    }
+
+    .page {
+        width: 94%;
+        margin: 25px auto;
+        padding: 25px 20px;
+    }
+
+    .page h1 {
+        font-size: 25px;
+    }
+
+    input {
+        padding: 15px;
+        font-size: 15px;
+    }
+
+    .action {
+        width: 100%;
+        font-size: 15px;
+    }
+
+}
